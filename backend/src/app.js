@@ -1,3 +1,12 @@
+import dotenv from "dotenv";
+
+if(process.env.NODE_ENV !== "production"){
+
+    dotenv.config();
+
+}
+
+
 import express from "express";
 import {createServer} from "node:http";
 
@@ -5,6 +14,8 @@ import { connectToSocket } from "./controllers/socketManager.js";
 
 import {Server} from "socket.io";
 import mongoose from "mongoose";
+
+const db_url=process.env.ATLASDB_URL;
 
 import cors from "cors";
 
@@ -24,7 +35,7 @@ app.use("/api/v1/users", userRoutes);
 
 async function main(){
     app.set("mongo_user")
-        const connectionDb = await mongoose.connect("mongodb+srv://priyanshuparmar2022:8qdqxXN7v0yTxz9c@cluster0.8ywjg8j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"); 
+        const connectionDb = await mongoose.connect(db_url); 
 
         console.log(`mongo connected Db host : ${connectionDb.connection.host}`);
 }
