@@ -6,4 +6,6 @@ backend/node_modules
 # Ignore env files
 /frontend/.env*
 
-/backend/src/.env*
+
+# All .env files will be ignore
+**/.env

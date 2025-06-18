@@ -15,7 +15,7 @@ import { connectToSocket } from "./controllers/socketManager.js";
 import {Server} from "socket.io";
 import mongoose from "mongoose";
 
-const db_url=process.env.ATLASDB_URL;
+const db_url = process.env.ATLASDB_URL;
 
 import cors from "cors";
 
